@@ -16,7 +16,7 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-	private final static int TEST_DURATION_SECS=300;
+	private final static int TEST_DURATION_SECS=180;
 	private Date testStart = new Date();
 
 	private ArrayList<String> urlList = new ArrayList<String> ();
