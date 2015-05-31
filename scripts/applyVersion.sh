@@ -35,11 +35,11 @@ function commitAndPush()
 
     #commit our changes
     log "git commit -m \"applying ${STEP}\""
-    git commit -m \"applying ${STEP}\"
+    #git commit -m \"applying ${STEP}\"
     
     #push our changes up
     log "git push"
-    git push
+    #git push
 
     cd ${PWD}
     echo
