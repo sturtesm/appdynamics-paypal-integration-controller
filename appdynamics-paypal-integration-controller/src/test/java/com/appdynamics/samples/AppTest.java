@@ -16,7 +16,7 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-	private final static int TEST_DURATION_SECS=900;
+	private final static int TEST_DURATION_SECS=300;
 	private Date testStart = new Date();
 
 	private ArrayList<String> urlList = new ArrayList<String> ();
@@ -44,8 +44,16 @@ public class AppTest
 			while (shouldTest()) {
 				for (String address : urlList) {
 					hitUrl(address);
+					
+					try { 
+						Thread.sleep(1000);
+					}
+					catch (Exception e) {
+						//nothing to do here
+					}
 				}
 			}
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 			success = false;
