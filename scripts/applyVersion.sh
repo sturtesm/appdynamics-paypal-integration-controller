@@ -20,7 +20,7 @@ function commitAndPush()
 {
     src=$1
 
-    PWD=`pwd`
+    CWD=`pwd`
 
     echo
     log "------------------- [ Applying ${STEP1} Changes to ${src} ] -----------------------"
@@ -35,13 +35,13 @@ function commitAndPush()
 
     #commit our changes
     log "git commit -m \"applying ${STEP}\""
-    #git commit -m \"applying ${STEP}\"
+    git commit -m \\"applying ${STEP}\\"
     
     #push our changes up
     log "git push"
-    #git push
+    git push
 
-    cd ${PWD}
+    cd ${CWD}
     echo
     log "-------------- [ Done Applying ${STEP} changes to ${src} ] -------------------"
 }
@@ -63,13 +63,13 @@ fi
 if [ -d ${JAVA_SERVICES_PROJECT_VERSIONS}/${STEP} ]
 then
     log "cp -r ${JAVA_SERVICES_PROJECT_VERSIONS}/${STEP}/com ${JAVA_SERVICES_PROJECT_SRC}"
-    echo "cp -r ${JAVA_SERVICES_PROJECT_VERSIONS}/${STEP}/com ${JAVA_SERVICES_PROJECT_SRC}"
+    cp -r ${JAVA_SERVICES_PROJECT_VERSIONS}/${STEP}/com ${JAVA_SERVICES_PROJECT_SRC}
 
-    commitAndPush ${JAVA_SERVICES_PROJECT_VERSIONS} 
+    commitAndPush ${JAVA_SERVICES_PROJECT_SRC}
 else
     echo
     log "---------------------------------------------------------------------------------------------"
-    echo "Didn't find ${STEP} for JAVA_SERVICES_PROJECT, won't apply any changes..."
+    echo "Didn't find ${STEP} for JAVA_SERVICES_PROJECT (${JAVA_SERVICES_PROJECT_VERSIONS}/${STEP}), won't apply any changes..."
     log "---------------------------------------------------------------------------------------------"
     echo
 fi
