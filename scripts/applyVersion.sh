@@ -21,20 +21,43 @@ function commitAndPush()
     src=$1
 
     PWD=`pwd`
+
+    echo
+    log "------------------- [ Applying ${STEP1} Changes to ${src} ] -----------------------"
+
+    #change directory to where our source lives
+    log "cd ${src}"
     cd ${src}
-    echo "git add ${src}"
-    echo "git commit -m applying ${STEP}"
-    echo "git push"
+
+    #check-in our source code
+    log "git add com"
+    git add com
+
+    #commit our changes
+    log "git commit -m \"applying ${STEP}\""
+    git commit -m \"applying ${STEP}\"
+    
+    #push our changes up
+    log "git push"
+    git push
+
     cd ${PWD}
+    echo
+    log "-------------- [ Done Applying ${STEP} changes to ${src} ] -------------------"
 }
 
 if [ -d ${JAVA_WEB_PROJECT_VERSIONS}/${STEP} ]
 then
     log "cp -r ${JAVA_WEB_PROJECT_VERSIONS}/${STEP}/com ${JAVA_WEB_PROJECT_SRC}/"
-    echo "cp -r ${JAVA_WEB_PROJECT_VERSIONS}/${STEP}/com ${JAVA_WEB_PROJECT_SRC}/"
+    cp -r ${JAVA_WEB_PROJECT_VERSIONS}/${STEP}/com ${JAVA_WEB_PROJECT_SRC}/
+
     commitAndPush ${JAVA_WEB_PROJECT_SRC}
 else
-    echo "Didn't find ${STEP} for JAVA_WEB_PROJECT, won't apply any changes..."
+    echo
+    log "---------------------------------------------------------------------------------------------"
+    log "Didn't find ${STEP} for JAVA_WEB_PROJECT, won't apply any changes..."
+    log "---------------------------------------------------------------------------------------------"
+    echo
 fi
 
 if [ -d ${JAVA_SERVICES_PROJECT_VERSIONS}/${STEP} ]
@@ -44,5 +67,9 @@ then
 
     commitAndPush ${JAVA_SERVICES_PROJECT_VERSIONS} 
 else
+    echo
+    log "---------------------------------------------------------------------------------------------"
     echo "Didn't find ${STEP} for JAVA_SERVICES_PROJECT, won't apply any changes..."
+    log "---------------------------------------------------------------------------------------------"
+    echo
 fi
