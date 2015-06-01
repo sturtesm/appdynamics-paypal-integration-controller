@@ -40,7 +40,7 @@ function commitAndPush()
 
 CWD=`pwd`
 cd ${JAVA_WEB_PROJECT_SRC}
-git rm -r com
+git rm -r com/appdynamics/sample/servlet/*.java
 cd ${CWD}
 commitAndPush ${JAVA_WEB_PROJECT_SRC}
 

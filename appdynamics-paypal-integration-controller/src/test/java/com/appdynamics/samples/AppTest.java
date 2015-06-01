@@ -24,9 +24,9 @@ public class AppTest
 	public AppTest()
 	{
 		urlList.add("http://127.0.0.1:8081/paypal-online-store");
-		urlList.add("http://127.0.0.1:8081/paypal-online-store/addcard");
-		urlList.add("http://127.0.0.1:8081/paypal-online-store/checkout");
-		urlList.add("http://127.0.0.1:8081/paypal-online-store/accountHistory");
+		urlList.add("http://127.0.0.1:8081/paypal-online-store/addcard?reset=true");
+		urlList.add("http://127.0.0.1:8081/paypal-online-store/checkout?reset=true");
+		urlList.add("http://127.0.0.1:8081/paypal-online-store/accountHistory?reset=true");
 	}
 
 	private boolean shouldTest() {
