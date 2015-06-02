@@ -41,13 +41,13 @@ function commitAndPush()
 CWD=`pwd`
 cd ${JAVA_WEB_PROJECT_SRC}
 touch com/appdynamics/sample/servlet/README #if we have an empty folder, then git removes the directory
-git rm -r com/appdynamics/sample/servlet/*.java
+git rm com/appdynamics/sample/servlet/*.java
 cd ${CWD}
 commitAndPush ${JAVA_WEB_PROJECT_SRC}
 
 cd ${JAVA_SERVICES_PROJECT_SRC}
-touch com/appdynamics/sample/README #if we have an empty folder, then git removes the directory
-git rm -r com/appdynamics/sample/service/*.java
+touch com/appdynamics/sample/service/README #if we have an empty folder, then git removes the directory
+git rm com/appdynamics/sample/service/*.java
 cd ${CWD}
 commitAndPush ${JAVA_SERVICES_PROJECT_SRC}
 

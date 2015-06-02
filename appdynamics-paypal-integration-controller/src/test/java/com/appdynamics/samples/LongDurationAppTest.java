@@ -14,14 +14,14 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class LongDurationAppTest 
 {
-	private final static int TEST_DURATION_SECS=180;
+	private final static int TEST_DURATION_SECS=30000;
 	private Date testStart = new Date();
 
 	private ArrayList<String> urlList = new ArrayList<String> ();
 
-	public AppTest()
+	public LongDurationAppTest()
 	{
 		urlList.add("http://127.0.0.1:8081/paypal-online-store");
 		urlList.add("http://127.0.0.1:8081/paypal-online-store/addcard?reset=true");
@@ -46,11 +46,16 @@ public class AppTest
 					
 					try {
 						hitUrl(address);
-
-						Thread.sleep(1000);
 					}
 					catch (Exception e) {
 						//nothing to do here
+						e.printStackTrace();
+					}
+					
+					try {
+						Thread.sleep(1000);
+					}
+					catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
