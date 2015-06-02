@@ -12,16 +12,17 @@ import java.util.Date;
 import org.junit.Test;
 
 /**
- * Unit test for simple App.
+ * Long duration nnit test for simple App, b/c the class doesn't end it "Test" it
+ * shouldn't get executed automatically.
  */
-public class LongDurationAppTest 
+public class LongDurationLoad 
 {
 	private final static int TEST_DURATION_SECS=30000;
 	private Date testStart = new Date();
 
 	private ArrayList<String> urlList = new ArrayList<String> ();
 
-	public LongDurationAppTest()
+	public LongDurationLoad()
 	{
 		urlList.add("http://127.0.0.1:8081/paypal-online-store");
 		urlList.add("http://127.0.0.1:8081/paypal-online-store/addcard?reset=true");
