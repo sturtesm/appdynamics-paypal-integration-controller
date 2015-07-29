@@ -15,19 +15,28 @@ import org.junit.Test;
  * Long duration nnit test for simple App, b/c the class doesn't end it "Test" it
  * shouldn't get executed automatically.
  */
-public class LongDurationLoad 
+public class LongDurationTest 
 {
 	private final static int TEST_DURATION_SECS=30000;
+	private final static String HOST="52.4.98.130";
+	private final static String PORT=null;
+	
 	private Date testStart = new Date();
 
 	private ArrayList<String> urlList = new ArrayList<String> ();
+	
+	private String buildAbsoluteURL(String url) {
+		String port = (PORT == null) ? "" : ":" + PORT;
+		
+		return String.format("http://%s%s/%s", HOST, port, url);
+	}
 
-	public LongDurationLoad()
+	public LongDurationTest()
 	{
-		urlList.add("http://127.0.0.1:8081/paypal-online-store");
-		urlList.add("http://127.0.0.1:8081/paypal-online-store/addcard?reset=true");
-		urlList.add("http://127.0.0.1:8081/paypal-online-store/checkout?reset=true");
-		urlList.add("http://127.0.0.1:8081/paypal-online-store/accountHistory?reset=true");
+		urlList.add(buildAbsoluteURL("paypal-online-store"));
+		urlList.add(buildAbsoluteURL("paypal-online-store/addcard"));
+		urlList.add(buildAbsoluteURL("paypal-online-store/checkout"));
+		urlList.add(buildAbsoluteURL("paypal-online-store/accountHistory"));
 	}
 
 	private boolean shouldTest() {
