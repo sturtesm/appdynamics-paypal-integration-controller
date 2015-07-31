@@ -1,0 +1,14 @@
+DROP DATABASE if exists payments;
+DROP USER 'devops'@'localhost';
+
+CREATE USER 'devops'@'localhost' IDENTIFIED BY 'devops';
+
+CREATE DATABASE IF NOT EXISTS payments;
+GRANT USAGE ON payments.* TO 'devops'@'localhost' IDENTIFIED BY 'devops';
+GRANT ALL PRIVILEGES ON payments.* TO devops@localhost;
+FLUSH PRIVILEGES;
+
+USE payments;
+CREATE TABLE accounts ( id INT, user VARCHAR(100), data VARCHAR(100) );
+
+
