@@ -37,6 +37,7 @@ public class LongDurationTest
 		urlList.add(buildAbsoluteURL("paypal-online-store/addcard"));
 		urlList.add(buildAbsoluteURL("paypal-online-store/checkout"));
 		urlList.add(buildAbsoluteURL("paypal-online-store/accountHistory"));
+		urlList.add(buildAbsoluteURL("paypal-online-store/accountLookup"));
 	}
 
 	private boolean shouldTest() {
