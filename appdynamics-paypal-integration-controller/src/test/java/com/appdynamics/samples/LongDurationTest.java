@@ -17,9 +17,9 @@ import org.junit.Test;
  */
 public class LongDurationTest 
 {
-	private final static int TEST_DURATION_SECS=30000;
+    private final static int TEST_DURATION_SECS=72000;
     private final static String HOST="52.4.98.130";
-    private final static String PORT=null;
+    private final static String PORT="8888";
     //private final static String HOST="127.0.0.1";
 	//private final static String PORT="8081";
 	
