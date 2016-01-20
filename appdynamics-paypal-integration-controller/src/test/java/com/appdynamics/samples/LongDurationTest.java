@@ -17,7 +17,7 @@ import org.junit.Test;
  */
 public class LongDurationTest 
 {
-    private final static int TEST_DURATION_SECS=72000;
+    private final static int TEST_DURATION_SECS=86400;
     private final static String HOST="52.4.98.130";
     private final static String PORT="8888";
     //private final static String HOST="127.0.0.1";
@@ -38,8 +38,12 @@ public class LongDurationTest
 		urlList.add(buildAbsoluteURL("paypal-online-store"));
 		urlList.add(buildAbsoluteURL("paypal-online-store/addcard"));
 		urlList.add(buildAbsoluteURL("paypal-online-store/checkout"));
+		urlList.add(buildAbsoluteURL("paypal-online-store/checkout"));
+		urlList.add(buildAbsoluteURL("paypal-online-store/checkout"));
+		urlList.add(buildAbsoluteURL("paypal-online-store/checkout"));
 		urlList.add(buildAbsoluteURL("paypal-online-store/accountHistory"));
 		urlList.add(buildAbsoluteURL("paypal-online-store/accountLookup"));
+		urlList.add(buildAbsoluteURL("paypal-online-store/demosim"));
 	}
 
 	private boolean shouldTest() {
